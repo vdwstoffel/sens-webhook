@@ -1,8 +1,15 @@
+import os
 from flask import Flask, request
 from sens_api import SensApi
 
 app = Flask(__name__)
-sens_api = SensApi("cred.txt")
+try:
+    with open("cred.txt") as f:
+        api_key = f.read()
+except:
+    api_key = os.environ.get["API_KEY"]
+
+sens_api = SensApi(api_key)
 
 
 @app.route("/", methods=["GET", "POST"])

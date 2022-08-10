@@ -3,10 +3,8 @@ import requests
 
 class SensApi:
 
-    def __init__(self, cred_path) -> None:
-
-        with open(cred_path) as f:
-            self.API_KEY = f.read()
+    def __init__(self, api_key) -> None:
+        self.API_KEY = api_key
 
     def update_tags(self, serial: str, tags: list):
         '''
