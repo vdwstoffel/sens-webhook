@@ -7,7 +7,7 @@ try:
     with open("cred.txt") as f:
         api_key = f.read()
 except:
-    api_key = os.getenv["API_KEY"]
+    api_key = os.environ["API_KEY"]
 
 sens_api = SensApi(api_key)
 
