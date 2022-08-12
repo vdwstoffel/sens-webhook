@@ -17,10 +17,8 @@ def index():
     if request.method == 'POST':
         data = request.json
 
-        if len(data['data']["geozones"]) > 0:
-            sens_api.update_tags(
-                data['data']["serial"], data['data']["geozones"])
-            print(data['data']["serial"])
+        sens_api.update_tags(
+            data['data']["serial"], data['data']["geozones"], data["data"]["address"])
 
     return "Hello :)"
 
